@@ -1,0 +1,151 @@
+:root {
+  --bg: #383434;           /* beyaz arka plan */
+  --text: #111111;         /* ana metin rengi */
+  --accent: #1f4f91;       /* lacivert vurgu (buton, başlık) */
+  --muted: #555555;        /* gri alt metin */
+  --border: #e0e0e0;       /* açık gri çerçeve */
+  --card: #f8f9fb;         /* kart arka planı */
+}
+
+/* ============ Base ============ */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:"Inter","Segoe UI",Arial,sans-serif;
+  background:linear-gradient(180deg,var(--bg1) 0%, var(--bg2) 100%);
+  color:var(--text);
+  line-height:1.55;
+}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+
+/* Buttons (beyaz dolu + beyaz çerçeve) */
+.btn,.btn-ghost{
+  display:inline-block;padding:10px 16px;border-radius:10px;
+  font-weight:700;text-decoration:none;transition:.2s
+}
+.btn{background:#5f4040d7;color:#093e2d}
+.btn:hover{background:#e6f7ef}
+.btn-ghost{border:1px solid #fff;color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.15)}
+
+/* ============ Header ============ */
+.site-header{
+  position:sticky;top:0;z-index:20;
+  background:#b4ac62;backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border)
+}
+.site-header .container{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+.logo{font-weight:800;font-size:22px;text-decoration:none;color:#fff}
+.nav a{margin-left:18px;font-weight:600;text-decoration:none;color:#fff;opacity:.9}
+.nav a:hover{opacity:1}
+
+/* ============ Hero (green, photo-free) ============ */
+.hero{
+  position:relative;height:50vh;display:flex;align-items:center;justify-content:center;
+  background:
+    radial-gradient(700px 320px at 15% 10%, rgb(131, 85, 83) 0%, transparent 60%),
+    radial-gradient(600px 280px at 85% 25%, rgba(131,85,83) 0%, transparent 65%);
+}
+.hero-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
+.hero-title{font-size:3rem;font-weight:800;letter-spacing:.3px;margin:0 0 10px;color:#080404}
+.hero-subtitle{font-size:1.1rem;color:rgba(24, 9, 9, 0.85);margin:0 0 22px}
+
+/* ============ Generic Section ============ */
+.section{background:transparent;border-top:1px solid var(--border);padding:64px 0}
+.section h2{font-size:1.9rem;margin:0 0 16px;text-align:center}
+.section h2::after{
+  content:"";display:block;width:60px;height:3px;background:var(--accent);
+  margin:10px auto 0;border-radius:2px
+}
+
+/* ============ About ============ */
+.about{background:transparent;padding:80px 0;text-align:center}
+.about-text{max-width:800px;margin:0 auto 36px;color:rgba(14, 7, 7, 0.9);line-height:1.7}
+.about-grid{
+  display:grid;gap:22px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr))
+}
+.about-card{
+  background:var(--card);padding:28px 18px;border-radius:14px;
+  border:1px solid var(--border);box-shadow:var(--shadow);transition:.25s
+}
+.about-card:hover{background:var(--card-hover);transform:translateY(-6px)}
+.about-card img{width:56px;height:56px;margin-bottom:12px;filter:drop-shadow(0 0 8px rgba(167,243,208,.3))}
+.about-card h3{margin:8px 0 6px;color:var(--accent)}
+.about-card p{color:rgba(14, 5, 5, 0.9);font-size:.96rem}
+
+/* ============ Project Documents ============ */
+#documents{background:transparent}
+.docs-grid{
+  display:grid;gap:24px;margin-top:20px;
+  grid-template-columns:repeat(3,1fr);
+  justify-items:stretch;align-items:stretch;text-align:center
+}
+@media (max-width:992px){.docs-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.docs-grid{grid-template-columns:1fr}}
+.doc-card{
+  display:flex;flex-direction:column;justify-content:space-between;height:100%;
+  padding:24px 18px;text-align:center;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  box-shadow:var(--shadow);transition:.25s
+}
+.doc-card:hover{background:var(--card-hover);transform:translateY(-5px)}
+.doc-card h3{color:var(--accent);margin:0 0 10px;font-size:1.1rem;min-height:2.6em}
+.doc-card p{color:rgba(20, 7, 7, 0.9);font-size:.95rem;margin:0 0 14px;min-height:3.4em}
+.pdf-btn{background:#886060af;color:#093e2d;border:none}
+.pdf-btn:hover{background:#1f4f91;transform:translateY(-2px)}
+
+/* ============ Team & Advisors ============ */
+.team-grid{
+  display:grid;gap:18px;margin-top:14px;
+  grid-template-columns:repeat(4,1fr)
+}
+@media (max-width:992px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.team-grid{grid-template-columns:1fr}}
+.member{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  overflow:hidden;box-shadow:var(--shadow);transition:.25s
+}
+.member:hover{background:var(--card-hover)}
+.member img{width:100%;height:200px;object-fit:cover;filter:grayscale(10%)}
+.m-body{padding:12px}
+.m-name{margin:0;font-weight:800;color:#0f0909}
+.m-role{margin:4px 0 0;color:rgba(7, 3, 3, 0.85);font-size:.92rem}
+
+
+
+/* ============ Footer ============ */
+.site-footer{
+  background: #535251;backdrop-filter:blur(6px);
+  border-top:1px solid var(--border);text-align:center;
+  padding:18px 0;color:rgba(255,255,255,.85);font-size:.92rem
+}
+
+/* ============ Responsive Nav tweaks ============ */
+@media (max-width:520px){
+  .nav{display:none}
+  .hero-title{font-size:2.3rem}
+  .hero-subtitle{font-size:1rem}
+}
+
+
+/* ===== Section Background Alternation ===== */
+.section:nth-of-type(odd) {
+  background: #ffffff; /* beyaz */
+}
+
+.section:nth-of-type(even) {
+  background: #535251; /* açık mavi-gri */
+}
+
+/* İstersen “About” kısmını ayrı vurgu yapabiliriz */
+.about {
+  background: #535251; /* daha belirgin açık mavi */
+}
+
+/* Hero zaten kendi renginde */
+.hero {
+  background: linear-gradient(180deg, #b4ac62 0%, #535251 100%);
+  color: #fff;
+}
